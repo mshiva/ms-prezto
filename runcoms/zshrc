@@ -25,5 +25,13 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 ## Python
 eval "$(pyenv init -)"
 
+#JVM
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Setup custom shell functions
+fpath=( ~/.zprezto/zshfn "${fpath[@]}" )
+autoload -Uz $fpath[1]/*(.:t)
